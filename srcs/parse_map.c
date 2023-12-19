@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 00:29:38 by yfurutat          #+#    #+#             */
-/*   Updated: 2023/12/20 01:02:10 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 05:06:38 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,9 @@ void	parse_map(char *file_name, t_data *data)
 		data->map[i] = get_next_line(fd);
 		i++;
 		if (i == cnt)
-		{
 			data->map[i] = NULL;
+		if (i == cnt)
 			break ;
-		}
-		// if (i == cnt)
 	}
 	if (close(fd) == -1)
 		exit_error("'close()' failed.\n", data);

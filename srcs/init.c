@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 23:37:53 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 00:49:51 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 06:29:27 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 void	create_images(t_data *data)
 {
+	(data->img_b).img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, \
+		"textures/b32.xpm", &((data->img_b).width), &((data->img_b).height));
+	if ((data->img_b).img_ptr == NULL)
+		exit_error("mlx_xpm_file_to_image() failed.\n", data);
 	(data->img_p).img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, \
 		"textures/p32.xpm", &((data->img_p).width), &((data->img_p).height));
 	if ((data->img_p).img_ptr == NULL)
@@ -70,6 +74,7 @@ void	deploy_images(t_data *data)
 	}
 }
 
+// /opt/X11/include/X11/X.h
 void	init_game(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
@@ -81,6 +86,7 @@ void	init_game(t_data *data)
 	if (data->win_ptr == NULL)
 		exit_error("mlx_new_window() failed.\n", data);
 	deploy_images(data);
+	handle_hooks(data);
 	mlx_loop(data->mlx_ptr);
 }
 

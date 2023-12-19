@@ -6,12 +6,46 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:14:27 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 01:32:02 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 04:00:13 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mlx.h"
+
+// typedef struct s_vars {
+// 	void	*mlx_ptr;
+// 	void	*win_ptr;
+// }	t_vars;
+
+// int	key_hook(int keycode, void *data)
+// {
+// 	if (keycode == ESC) 
+// 	{
+// 		destroy_data(data);
+// 		exit(EXIT_SUCCESS);
+// 	}
+// 	printf("%d!\n", keycode);
+// 	return (0);
+// }
+
+// int	main(void)
+// {
+// 	t_data	data;
+
+// 	data.mlx_ptr = mlx_init();
+// 	data.win_ptr = mlx_new_window(data.mlx_ptr, 640, 480, "Hello world!");
+// 	mlx_key_hook(data.win_ptr, key_hook, &data);
+// 	mlx_loop(data.mlx_ptr);
+// }
+
+// (for window 1)
+// if (key_is_released)
+// 	key_hook(keycode, data);
+
+// (for window 2)
+// if (key_is_released)
+// 	key_hook2(keycode, data);
 
 void	print_map(char **map)
 {

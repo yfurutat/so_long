@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 02:54:47 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 00:47:51 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 05:08:51 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ void	check_char(t_data *data, size_t i, size_t j)
 	if (data->map[i][j] == 'E')
 		data->exit++;
 	if (data->map[i][j] == 'P')
+	{
 		data->player++;
+		data->p_x = j;
+		data->p_y = i;
+	}
 	if (data->exit > 1)
 		exit_error("Too many exits.\n", data);
 	if (data->player > 1)

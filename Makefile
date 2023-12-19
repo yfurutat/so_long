@@ -19,6 +19,7 @@ OBJS_PATH	=	./objs/
 SRCS_FILES	=	error.c \
 				get_next_line.c \
 				get_next_line_utils.c \
+				handle_hooks.c \
 				init.c \
 				parse_map.c \
 				scan_map.c \
