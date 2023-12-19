@@ -1,0 +1,22 @@
+/* XPM */
+static char * my_icon[] = {
+"16 16 2 1",
+"a c #FFFFFF",
+"b c #000000",
+"aaaaaaaaaaaaaaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"abbbbbbbbbbbbaaa",
+"aaaaaaaaaaaaaaaa"
+};
