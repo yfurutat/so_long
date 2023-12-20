@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 23:37:53 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 06:29:27 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 06:33:07 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	deploy_images(t_data *data)
 	}
 }
 
-// /opt/X11/include/X11/X.h
 void	init_game(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
@@ -89,38 +88,3 @@ void	init_game(t_data *data)
 	handle_hooks(data);
 	mlx_loop(data->mlx_ptr);
 }
-
-// #include <stdio.h>
-
-// int	main()
-// {
-// 	t_data data;
-
-// 	ft_memset(&data, 0, sizeof(t_data));
-// 	data.width = 10;
-// 	data.height = 12;
-// 	init_game(&data);
-// 	// data.mlx_ptr = mlx_init();
-// 	// if (data.mlx_ptr == NULL)
-// 	// 	return 1;
-// 	// // printf("%p\n", data.mlx_ptr);
-// 	// data.win_ptr = mlx_new_window(data.mlx_ptr, 500, 500, "new");
-// 	// if (data.win_ptr == NULL) {
-// 	// 	free(data.mlx_ptr);
-// 	// 	return 1;
-// 	// }
-// 	(data.img_p).img_ptr = mlx_xpm_file_to_image(data.mlx_ptr, \
-// 		"textures/p32.xpm", &((data.img_p).width), &((data.img_p).height));
-// 	// if ((data.img_p).img_ptr == NULL) {
-// 	// 	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
-// 	// 	free(data.mlx_ptr);
-// 	// 	return 1;
-// 	// }
-// 	// mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, (data.img_p).img_ptr, 50, 50);
-// 	// mlx_loop(data.mlx_ptr);
-// 	// mlx_destroy_window(data.mlx_ptr, data.win_ptr);
-// 	// free(data.mlx_ptr);
-// 	return 0;
-// }
-// 	printf("W: %d H: %d\n", ((data.img_p).width), ((data.img_p).height));
-// 	free(data.win_ptr);

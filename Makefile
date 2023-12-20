@@ -1,8 +1,8 @@
 NAME		=	so_long
 
 CC			=	cc
-# CFLAGS		=	-Wall -Wextra -Werror -Iincludes -Iminilibx-linux -Ilibft
-CFLAGS		=	-Wall -Wextra -Iincludes -Iminilibx-linux -Ilibft
+# CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -Iincludes -Iminilibx-linux -Ilibft
+CFLAGS		=	-Wall -Wextra -Werror -Iincludes -Iminilibx-linux -Ilibft
 MLXFLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit
 MLXMAKE		=	$(MAKE) -C $(MLX_PATH)
 LIBFTMAKE	=	$(MAKE) -C $(LIBFT_PATH)
@@ -23,6 +23,7 @@ SRCS_FILES	=	error.c \
 				init.c \
 				parse_map.c \
 				scan_map.c \
+				check_path.c \
 				main.c 
 
 OBJS		=	$(addprefix $(OBJS_PATH), $(SRCS_FILES:.c=.o))

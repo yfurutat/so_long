@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 02:54:47 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 05:08:51 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:07:00 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,24 @@ size_t	row_len(char *row)
 	return (len);
 }
 
+void	handle_cep(t_data *data, size_t i, size_t j)
+{
+	if (data->map[i][j] == 'C')
+		data->collectibles++;
+	if (data->map[i][j] == 'E')
+	{
+		data->e_x = j;
+		data->e_y = i;
+		data->exit++;
+	}
+	if (data->map[i][j] == 'P')
+	{
+		data->p_x = j;
+		data->p_y = i;
+		data->player++;
+	}
+}
+
 void	check_char(t_data *data, size_t i, size_t j)
 {
 	if (!ft_strchr("01CEP", data->map[i][j]))
@@ -36,23 +54,12 @@ void	check_char(t_data *data, size_t i, size_t j)
 		if (data->map[i][j] != '1')
 			exit_error("broken wall.\n", data);
 	}
-	if (data->map[i][j] == 'C')
-		data->collectibles++;
-	if (data->map[i][j] == 'E')
-		data->exit++;
-	if (data->map[i][j] == 'P')
-	{
-		data->player++;
-		data->p_x = j;
-		data->p_y = i;
-	}
+	handle_cep(data, i, j);
 	if (data->exit > 1)
 		exit_error("Too many exits.\n", data);
 	if (data->player > 1)
 		exit_error("Too many players.\n", data);
 }
-	// if (data->map[0][j] != '1' || data->map[end][j] != '1')
-	// 	exit_error();
 
 void	scan_map(t_data *data)
 {
@@ -80,4 +87,5 @@ void	scan_map(t_data *data)
 	if (data->player == 0)
 		exit_error("No player.\n", data);
 	data->height = i;
+	check_path(data);
 }

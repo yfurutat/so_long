@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 00:29:38 by yfurutat          #+#    #+#             */
-/*   Updated: 2023/12/20 05:06:38 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 06:33:43 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ size_t	count_lines(char *file_name)
 		exit_error("'close()' failed.", NULL);
 	return (cnt);
 }
-		// printf("%s [\\n]", line);
 
-	// char	**map;
 void	parse_map(char *file_name, t_data *data)
 {
 	size_t	cnt;
@@ -67,6 +65,3 @@ void	parse_map(char *file_name, t_data *data)
 	if (close(fd) == -1)
 		exit_error("'close()' failed.\n", data);
 }
-	// *map = get_next_line();
-	// if (ft_strchr("01C", map[i][j]))
-	// ;
