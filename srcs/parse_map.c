@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 00:29:38 by yfurutat          #+#    #+#             */
-/*   Updated: 2023/12/20 06:33:43 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:23:02 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "get_next_line.h"
 #include "mlx.h"
 
-size_t	count_lines(char *file_name)
+static size_t	count_lines(char *file_name)
 {
 	char	*line;
 	size_t	cnt;

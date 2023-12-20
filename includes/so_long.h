@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:05:34 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 09:07:37 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:13:25 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define RIGHT (65363)
 # define ESC (65307)
 # define ON_DESTROY (17)
+# define X_MAX (80)
+# define Y_MAX (42)
 
 typedef struct s_xpm_data
 {
@@ -56,14 +58,13 @@ typedef struct s_data
 	t_xd	img_e;
 }	t_data;
 
+void	check_path(t_data *data);
 void	exit_error(char *err_msg, t_data *data);
+void	handle_hooks(t_data *data);
 void	init_game(t_data *data);
 void	parse_map(char *file_name, t_data *data);
 void	scan_map(t_data *data);
 void	free_map(char **map);
 void	destroy_data(t_data *data);
-void	handle_hooks(t_data *data);
-bool	check_extension(char *file_name);
-void	check_path(t_data *data);
 
 #endif

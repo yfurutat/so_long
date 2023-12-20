@@ -6,30 +6,14 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:14:27 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 09:13:24 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:01:19 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mlx.h"
 
-void	free_map(char **map)
-{
-	size_t	i;
-
-	if (!map)
-		return ;
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		map[i] = NULL;
-		i++;
-	}
-	free(map);
-}
-
-bool	check_extension(char *file_name)
+static bool	check_extension(char *file_name)
 {
 	size_t	len;
 
@@ -51,9 +35,12 @@ int	main(int argc, char *argv[])
 		exit_error("Invalid extension", NULL);
 	parse_map(argv[1], &data);
 	scan_map(&data);
+	if (data.height > Y_MAX || data.width > X_MAX)
+		exit_error("Too big a map.\n", &data);
 	init_game(&data);
 	return (0);
 }
+	// printf("X %zd Y %zd\n", data.width, data.height);
 
 // __attribute__((destructor))void	destructor()
 // {

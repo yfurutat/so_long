@@ -16,15 +16,15 @@ MLX_PATH	=	./minilibx-linux/
 SRCS_PATH	=	./srcs/
 OBJS_PATH	=	./objs/
 
-SRCS_FILES	=	error.c \
+SRCS_FILES	=	main.c \
+				check_path.c \
+				error_and_clear.c \
 				get_next_line.c \
 				get_next_line_utils.c \
 				handle_hooks.c \
 				init.c \
 				parse_map.c \
-				scan_map.c \
-				check_path.c \
-				main.c 
+				scan_map.c 
 
 OBJS		=	$(addprefix $(OBJS_PATH), $(SRCS_FILES:.c=.o))
 
@@ -69,7 +69,7 @@ commit	:
 	@echo "\n"
 	git status
 	@echo "\n"
-	git add $(SRCS_PATH)$(SRCS_FILES) $(HFILES) Makefile .gitignore
+	git add $(HFILES) $(LIBFT_PATH)*.h $(LIBFT_PATH)*.c $(SRCS_PATH)*.c Makefile .gitignore
 	@echo "\n"
 	@git commit -m "$(COM_MSG)"
 	@echo "\n"

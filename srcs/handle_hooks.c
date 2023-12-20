@@ -6,14 +6,21 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 02:28:02 by yfurutat          #+#    #+#             */
-/*   Updated: 2023/12/20 06:27:25 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:11:56 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mlx.h"
 
-void	move_player(t_data *data, size_t new_x, size_t new_y)
+static int	close_window(t_data *data)
+{
+	destroy_data(data);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
+
+static void	move_player(t_data *data, size_t new_x, size_t new_y)
 {
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_b.img_ptr, \
 		32 * data->p_x, 32 * data->p_y);
@@ -21,14 +28,7 @@ void	move_player(t_data *data, size_t new_x, size_t new_y)
 		32 * new_x, 32 * new_y);
 }
 
-int	close_window(t_data *data)
-{
-	destroy_data(data);
-	exit(EXIT_SUCCESS);
-	return (0);
-}
-
-void	hoge(t_data *data, size_t new_x, size_t new_y)
+static void	handle_moves(t_data *data, size_t new_x, size_t new_y)
 {
 	if (data->map[new_y][new_x] == '1')
 		return ;
@@ -55,18 +55,18 @@ void	hoge(t_data *data, size_t new_x, size_t new_y)
 	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
-int	key_hook(int keycode, t_data *data)
+static int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == ESC)
 		close_window(data);
 	else if (keycode == UP)
-		hoge(data, data->p_x, data->p_y - 1);
+		handle_moves(data, data->p_x, data->p_y - 1);
 	else if (keycode == DOWN)
-		hoge(data, data->p_x, data->p_y + 1);
+		handle_moves(data, data->p_x, data->p_y + 1);
 	else if (keycode == LEFT)
-		hoge(data, data->p_x - 1, data->p_y);
+		handle_moves(data, data->p_x - 1, data->p_y);
 	else if (keycode == RIGHT)
-		hoge(data, data->p_x + 1, data->p_y);
+		handle_moves(data, data->p_x + 1, data->p_y);
 	return (0);
 }
 

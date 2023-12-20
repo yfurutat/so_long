@@ -6,7 +6,7 @@
 /*   By: yfurutat <yfurutat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 02:54:47 by efmacm23          #+#    #+#             */
-/*   Updated: 2023/12/20 09:07:00 by yfurutat         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:22:51 by yfurutat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "get_next_line.h"
 #include "mlx.h"
 
-size_t	row_len(char *row)
+static size_t	row_len(char *row)
 {
 	size_t	len;
 
@@ -26,7 +26,7 @@ size_t	row_len(char *row)
 	return (len);
 }
 
-void	handle_cep(t_data *data, size_t i, size_t j)
+static void	handle_cep(t_data *data, size_t i, size_t j)
 {
 	if (data->map[i][j] == 'C')
 		data->collectibles++;
@@ -44,7 +44,7 @@ void	handle_cep(t_data *data, size_t i, size_t j)
 	}
 }
 
-void	check_char(t_data *data, size_t i, size_t j)
+static void	check_char(t_data *data, size_t i, size_t j)
 {
 	if (!ft_strchr("01CEP", data->map[i][j]))
 		exit_error("Invalid character.\n", data);
